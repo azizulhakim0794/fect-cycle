@@ -1,0 +1,73 @@
+ /* Carousel */
+ .carousel-img1{
+    height: 600px;
+    background-image: url("../../../image/carousel/carousel02.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    background-size: 100% 100%;
+  }
+  .carousel-img2{
+    height: 600px;
+    background-image: url("../../../image/carousel/carousel04.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    background-size: 100% 100%;
+  }
+  .carousel-img3{
+    height: 600px;
+    background-image: url("../../../image/carousel/carousel03.jpg");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+    background-size: 100% 100%;
+  }
+  .carousel-text01{
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    color: #000000d4;
+    font-weight: 700;
+    font-size: 70px;
+    user-select: none;
+    animation: carouselText 1.7s linear ;
+    /* z-index:4 */
+ 
+  }
+  .banner-text{
+    position: absolute;
+    top: 40%;
+    left: 17%;
+    height: 10%;
+    user-select: none;
+    animation: bannerImg 1.7s linear;
+  }
+  img.d-block.w-100 {
+    height: 600px;
+  }
+  .carousel-control-next, .carousel-control-prev {
+    width: 6% !important;
+}
+@keyframes bannerImg{
+    0%{
+        left: 160%;
+    }
+    50%{
+        left: 16.8%;
+    }
+    100%{
+        left: 17%;
+    }
+}
+@keyframes carouselText{
+  0%{
+      left: -60%;
+  }
+  50%{
+    left: 21%;
+}
+100%{
+    left: 20%;
+}
+}
