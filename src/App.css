@@ -16,11 +16,30 @@ img, media {
   }
  /* Top Promotion image */
 .top-promotion-img{
-  /* position: absolute; */
-  /* top: 50px;
-  left: 50px; */
+
 }
 .pro-btn{
-  /* z-index: 5; */
   
+}
+/* Footer */
+.footer-area{
+  /* background-image: url(../../../images/footer-bg.png); */
+  background-size: cover;
+}
+
+.footer-area li{
+  padding-bottom: 10px;
+}
+
+.social-media .active-icon {
+  background-color: #ffd100;
+  color: #141515;
+}
+.social-media .icon {
+  height: 40px;
+  width: 40px;
+  color: #141515;
+  border-radius: 50%;
+  border: 1px solid #ffd100;
+  padding: 10px;
 }

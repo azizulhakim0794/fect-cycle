@@ -1,10 +1,10 @@
 import React from 'react'
 import NavBar from '../CommonComponent/NavBar/NavBar'
 import Carousel from './Carousel/Carousel'
-import Card from './Card/Card'
 import TopPromotion from './TopPromotion/TopPromotion'
 import FeaturedNow from './FeaturedNow/FeaturedNow'
-
+import ProductCarousel from './ProductCarousel/ProductCarousel'
+import Footer from '../CommonComponent/Footer/Footer'
 const Home = () => {
     return (
         <div>
@@ -13,36 +13,13 @@ const Home = () => {
                 <Carousel />
                 <div className="container">
                    <div className="p-3 shadow ">
-                       <Card/>
-                   {/* <div className="row row-cols-1 row-cols-md-4 g-4">
-                        <div className="col">
-                            <Card/>
-                        </div>
-                        <div className="col">
-                        <div className="col">
-                            <Card/>
-                        </div>
-                        </div>
-                        <div className="col">
-                        <div className="col">
-                            <Card/>
-                        </div>
-                        </div>
-                        <div className="col">
-                        <div className="col">
-                            <Card/>
-                        </div>
-                        </div>
-                    </div> */}
+                       <ProductCarousel/>
                    </div>
                    <TopPromotion/>
                    <br />
                    <FeaturedNow/>
                 </div>
-                
-                <br />
-                <br />
-                <br />
+                <Footer />
             </div>
         </div>
     )

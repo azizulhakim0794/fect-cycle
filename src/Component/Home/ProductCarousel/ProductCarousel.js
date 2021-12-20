@@ -1,11 +1,28 @@
-import axios from '../../../axios'
+import axios from '../../../axios';
 import React, { useEffect, useState } from 'react'
-import 'react-lazy-load-image-component/src/effects/blur.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { CardActionArea, CardContent, Typography, } from '@mui/material';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { useHistory } from 'react-router-dom';
-// import Loading from '../../CommonComponent/Loading/Loading';
-const Card = () => {
+import { CardActionArea, CardContent, Typography } from '@mui/material';
+const responsive = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 3,
+        slidesToSlide: 3 // optional, default to 1.
+    },
+    tablet: {
+        breakpoint: { max: 1024, min: 464 },
+        items: 2,
+        slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+        breakpoint: { max: 464, min: 0 },
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
+    }
+};
+const ProductCarousel = () => {
     const [products, setProducts] = useState([])
     const history = useHistory()
     useEffect(() => {
@@ -14,10 +31,10 @@ const Card = () => {
                 setProducts(res.data)
             })
     }, [products])
-
     const handleProductDetails = (event) => {
         history.push('/productDetails/' + event)
     }
+
 
     const allProductList = products.map((product) => {
         const { img, _id, name } = product
@@ -37,19 +54,15 @@ const Card = () => {
             </CardActionArea>
         </div>)
     });
-
-
-
     return (
-  
-            <div className="row row-cols-1 row-cols-md-4 g-4">
-                        {
-                            allProductList
-                        }
-                        </div>
-           
-       
+        <Carousel
+        responsive={responsive}
+         >
+            {
+                allProductList
+            }
+        </Carousel>
     )
 }
 
-export default Card
+export default ProductCarousel
