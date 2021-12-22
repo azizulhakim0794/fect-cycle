@@ -1,31 +1,26 @@
 import React from 'react'
-import banner1 from '../../../image/banner/banner-01.png'
-import banner2 from '../../../image/banner/banner-02.png'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
+import './../Home.css'
+import { useHistory } from 'react-router';
 const TopPromotion = () => {
+    const history = useHistory()
+    const goShop = (id) =>{
+        history.push('/productDetails/'+id)
+    }
     return (
         <div>
             <br /><br />
             <h1 className="text-center">Top Promotion</h1>
             <br />
             <div className="row row-cols-1 row-cols-md-2 g-4">
-                <div className="col">
-                    <div className="top-promotion-img">
-                    <LazyLoadImage
-                        alt="Banner 2"
-                        className="img-fluid"
-                        src={banner1}
-                    />
-                        <button className="btn btn-warning pro-btn">SHOP</button>
+                <div className="col ">
+                    <div className="top-promotion-img1">
+                        <button className="btn btn-warning cart-btn1 hide" onClick={()=> goShop('61c242d7ead84bbe00d3e236')}>SHOP</button>
                     </div>
                 </div>
-                <div className="col">
-                    <LazyLoadImage
-                        alt="Banner 2"
-                        className="img-fluid "
-                        src={banner2}
-                    />
+                <div className="col ">
+                    <div className="top-promotion-img2">
+                        <button className="btn btn-warning cart-btn2 hide" onClick={()=> goShop('61bb8e4d6059b39c00b14bb8')}>SHOP</button>
+                    </div>
                 </div>
             </div>
         </div>

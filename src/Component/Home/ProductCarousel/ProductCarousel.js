@@ -38,7 +38,7 @@ const ProductCarousel = () => {
 
     const allProductList = products.map((product) => {
         const { img, _id, name } = product
-        return (<div className="col" onClick={() => handleProductDetails(_id)}>
+        return (<div className="col" key={_id} onClick={() => handleProductDetails(_id)}>
             <CardActionArea className="">
                 {/* <Card className=""> */}
                     <LazyLoadImage
@@ -46,8 +46,9 @@ const ProductCarousel = () => {
                         src={img} // use normal <img> attributes as props
                         title={name}
                         className="card-img-top"
+                        effect="blur"
                        />
-                    <CardContent className="Product_cardContent">
+                    <CardContent className="Product_cardContent text-center">
                         <Typography variant="h6" gutterBottom>{name}</Typography>
                     </CardContent>
                 {/* </Card> */}

@@ -25,12 +25,13 @@ const Login = () => {
         .then((result) => {
           /** @type {firebase.auth.OAuthCredential} */
           const user = result.user;
-          const { displayName, email, uid } = user
+          const { displayName, email, uid ,photoURL} = user
           const newUserData = { ...loggedInUser }
           newUserData.isSignedIn = true
           newUserData.name = displayName
           newUserData.email = email
           newUserData.uid = uid
+          newUserData.photo = photoURL
           setLoggedInUser(newUserData)
           history.replace(from);
   

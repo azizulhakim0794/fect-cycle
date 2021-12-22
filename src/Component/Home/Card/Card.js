@@ -21,18 +21,18 @@ const Card = () => {
 
     const allProductList = products.map((product) => {
         const { img, _id, name } = product
-        return (<div className="col" onClick={() => handleProductDetails(_id)}>
+        return (<div className="col" key={_id} onClick={() => handleProductDetails(_id)}>
             <CardActionArea className="">
                 {/* <Card className=""> */}
-                    <LazyLoadImage
-                        alt={name}
-                        src={img} // use normal <img> attributes as props
-                        title={name}
-                        className="card-img-top"
-                       />
-                    <CardContent className="Product_cardContent">
-                        <Typography variant="h6" gutterBottom>{name}</Typography>
-                    </CardContent>
+                <LazyLoadImage
+                    alt={name}
+                    src={img} // use normal <img> attributes as props
+                    title={name}
+                    className="card-img-top"
+                />
+                <CardContent className="Product_cardContent">
+                    <Typography variant="h6" gutterBottom>{name}</Typography>
+                </CardContent>
                 {/* </Card> */}
             </CardActionArea>
         </div>)
@@ -41,14 +41,14 @@ const Card = () => {
 
 
     return (
-  
-            <div className="row row-cols-1 row-cols-md-4 g-4">
-                        {
-                            allProductList
-                        }
-                        </div>
-           
-       
+
+        <div className="row row-cols-1 row-cols-md-4 g-4">
+            {
+                allProductList
+            }
+        </div>
+
+
     )
 }
 

@@ -12,6 +12,9 @@ import NotFound from './Component/CommonComponent/NotFound/NotFound';
 import Login from './Component/Login/Login';
 import Shop from './Component/Shop/Shop';
 import Blog from './Component/Blog/Blog';
+import ProductDetails from './Component/AllProductComponent/ProductDetails/ProductDetails';
+import UsersOrders from './Component/UsersOrders/UsersOrders';
+import AddToCartProduct from './Component/AddToCartProduct/AddToCartProduct';
 export const UserContext = createContext()
 // const Home = React.lazy(()=> import('./Component/Home/Home'))
 // const NotFound = React.lazy(()=> import('./Component/CommonComponent/NotFound/NotFound'))
@@ -20,9 +23,9 @@ export const UserContext = createContext()
 // const Contact = React.lazy(()=> import('./Component/Contact/Contact'))
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    isSignedIn: false,
+    isSignedIn: true,
     name: '',
-    email: '',
+    email: 'azizulhakimtumzid0793@gmail.com',
     photo: '',
     uid: '',
     admin: '',
@@ -44,6 +47,15 @@ function App() {
           </Route>
           <Route path="/shop">
             <Shop />
+          </Route>
+          {loggedInUser.isSignedIn && <Route path="/userOrder">
+            <UsersOrders />
+          </Route>}
+          {loggedInUser.isSignedIn && <Route path="/addToCart">
+            <AddToCartProduct />
+          </Route>}
+          <Route path="/productDetails/:id">
+            <ProductDetails />
           </Route>
           <Route path="/blog">
             <Blog />

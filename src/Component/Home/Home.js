@@ -5,9 +5,12 @@ import TopPromotion from './TopPromotion/TopPromotion'
 import FeaturedNow from './FeaturedNow/FeaturedNow'
 import ProductCarousel from './ProductCarousel/ProductCarousel'
 import Footer from '../CommonComponent/Footer/Footer'
+import './Home.css'
+import HomeBlog from './HomeBlog.js/HomeBlog'
+import WhyChoose from './WhyChoose/WhyChoose'
 const Home = () => {
     return (
-        <div>
+        <div className="">
             <NavBar />
             <div className="">
                 <Carousel />
@@ -18,7 +21,14 @@ const Home = () => {
                    <TopPromotion/>
                    <br />
                    <FeaturedNow/>
-                </div>
+                   </div>
+                   <div className="">
+                       <WhyChoose/>
+                   </div>
+                   <br/>
+                   <HomeBlog/>
+                   <br />
+                
                 <Footer />
             </div>
         </div>
