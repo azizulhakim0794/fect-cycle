@@ -15,20 +15,12 @@ const Home = () => {
             <div className="">
                 <Carousel />
                 <div className="container">
-                   <div className="p-3 shadow ">
-                       <ProductCarousel/>
-                   </div>
-                   <TopPromotion/>
-                   <br />
-                   <FeaturedNow/>
-                   </div>
-                   <div className="">
-                       <WhyChoose/>
-                   </div>
-                   <br/>
-                   <HomeBlog/>
-                   <br />
-                
+                    <ProductCarousel />
+                    <TopPromotion />
+                    <FeaturedNow />
+                </div>
+                <WhyChoose />
+                <HomeBlog />
                 <Footer />
             </div>
         </div>

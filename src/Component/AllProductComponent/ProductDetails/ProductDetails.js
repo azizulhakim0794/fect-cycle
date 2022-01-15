@@ -132,19 +132,19 @@ const ProductDetails = () => {
                     </div>
                 </div>
                 {/* MODAL Start*/}
-                <div class="modal fade" id="BuyNowModal" aria-hidden="true" aria-labelledby="BuyNowModal" tabindex="-1">
-                    <div class=" modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="BuyNowModal">{product.name}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div className="modal fade" id="BuyNowModal" aria-hidden="true" aria-labelledby="BuyNowModal" tabIndex="-1">
+                    <div className=" modal-dialog modal-lg">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="BuyNowModal">{product.name}</h5>
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div className="modal-body">
                                 This can take an hour
                                 {/* <PaymentProcess handlePaymentOrder={handlePaymentOrder}/> */}
                             </div>
-                            {/* <div class="modal-footer">
-                                <button class="btn btn-primary" data-bs-target="#BuyNowModal" data-bs-toggle="modal">Open second modal</button>
+                            {/* <div className="modal-footer">
+                                <button className="btn btn-primary" data-bs-target="#BuyNowModal" data-bs-toggle="modal">Open second modal</button>
                             </div> */}
                         </div>
                     </div>

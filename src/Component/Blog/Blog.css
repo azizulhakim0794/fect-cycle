@@ -1,3 +1,7 @@
 .blog-img1{
     height: 550px;
 }
+.media-icon{
+    cursor: pointer;
+    height:30px
+}

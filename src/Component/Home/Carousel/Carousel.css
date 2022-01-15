@@ -32,8 +32,6 @@
     font-size: 70px;
     user-select: none;
     animation: carouselText 1.7s linear ;
-    /* z-index:4 */
- 
   }
   .banner-text{
     position: absolute;
@@ -69,5 +67,90 @@
 }
 100%{
     left: 20%;
+}
+}
+
+@media only screen and (max-width: 768px) {
+  .carousel-text01{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font-weight: 700;
+    font-size: 40px;
+    color: #080707d4;
+    user-select: none;
+    animation: carouselText 1.7s linear ;
+  }
+  .banner-text{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    height: 7%;
+    user-select: none;
+    animation: bannerImg 1.7s linear;
+  }
+  @keyframes bannerImg{
+    0%{
+        left: 160%;
+    }
+    50%{
+        left: 12%;
+    }
+    100%{
+        left: 10%;
+    }
+}
+@keyframes carouselText{
+  0%{
+      left: -60%;
+  }
+  50%{
+    left: 11%;
+}
+100%{
+    left: 10%;
+}
+}
+}
+@media only screen and (max-width: 576px) {
+  .carousel-text01{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font-weight: 700;
+    font-size: 40px;
+    color: #080707d4;
+    user-select: none;
+    animation: carouselText 1.7s linear ;
+  }
+  .banner-text{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    height: 5%;
+    user-select: none;
+    animation: bannerImg 1.7s linear;
+  }
+  @keyframes bannerImg{
+    0%{
+        left: 160%;
+    }
+    50%{
+        left: 16.8%;
+    }
+    100%{
+        left: 10%;
+    }
+}
+@keyframes carouselText{
+  0%{
+      left: -60%;
+  }
+  50%{
+    left: 11%;
+}
+100%{
+    left: 10%;
+}
 }
 }

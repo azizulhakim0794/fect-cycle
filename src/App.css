@@ -2,6 +2,9 @@
 img, media {
   max-width: 100%;
 }
+.cursor-p{
+  cursor: pointer;
+}
 /* Loading */
 .loading {
     height: 100vh;

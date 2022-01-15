@@ -8,29 +8,38 @@ import { CardActionArea, CardContent, Typography } from '@mui/material';
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 3,
-        slidesToSlide: 3 // optional, default to 1.
+        items: 5,
+        slidesToSlide: 5 // optional, default to 1.
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2,
-        slidesToSlide: 2 // optional, default to 1.
+        items: 3,
+        slidesToSlide: 3 // optional, default to 1.
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
+        items: 2,
+        slidesToSlide: 2 // optional, default to 1.
     }
 };
 const ProductCarousel = () => {
     const [products, setProducts] = useState([])
+
     const history = useHistory()
     useEffect(() => {
-        axios.get('/product')
+        const abortCont = new AbortController()
+        axios.get('/product', { signal: abortCont.signal })
             .then((res) => {
                 setProducts(res.data)
             })
-    }, [products])
+            .catch((err) => {
+                if (err.name === "AbortError") {
+                    console.log('fetch Abort')
+                }
+            })
+        return () => abortCont.abort()
+    }, [])
+
     const handleProductDetails = (event) => {
         history.push('/productDetails/' + event)
     }
@@ -41,28 +50,30 @@ const ProductCarousel = () => {
         return (<div className="col" key={_id} onClick={() => handleProductDetails(_id)}>
             <CardActionArea className="">
                 {/* <Card className=""> */}
-                    <LazyLoadImage
-                        alt={name}
-                        src={img} // use normal <img> attributes as props
-                        title={name}
-                        className="card-img-top"
-                        effect="blur"
-                       />
-                    <CardContent className="Product_cardContent text-center">
-                        <Typography variant="h6" gutterBottom>{name}</Typography>
-                    </CardContent>
+                <LazyLoadImage
+                    alt={name}
+                    src={img} // use normal <img> attributes as props
+                    title={name}
+                    className="card-img-top"
+                    effect="blur"
+                />
+                <CardContent className="Product_cardContent text-center">
+                    <Typography variant="h6" gutterBottom>{name}</Typography>
+                </CardContent>
                 {/* </Card> */}
             </CardActionArea>
         </div>)
     });
     return (
-        <Carousel
-        responsive={responsive}
-         >
-            {
-                allProductList
-            }
-        </Carousel>
+        <div className="shadow ">
+            <Carousel
+                responsive={responsive}
+            >
+                {
+                    allProductList
+                }
+            </Carousel>
+        </div>
     )
 }
 

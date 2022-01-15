@@ -1,90 +1,9 @@
 
 /* Top Promotion */
-.top-promotion-img1{
-    background-image: url("../../image/banner/banner-01.png");
-    height: 500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-.top-promotion-img2{
-  background-image: url("../../image/banner/banner-02.png");
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-.cart-btn1{
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-}
-.cart-btn2{
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .top-promotion-img2:hover{
-    -webkit-filter: brightness(70%);
-    transition: .3s;
-  }
-  .top-promotion-img1:hover{
-    -webkit-filter: brightness(70%);
-    transition: .3s;
-  }
 
 
   /* HomeBlog */
-  .home-blog-img1{
-    background-image: url("../../image/banner/homeblog-02.jpg");
-    height: 234px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
-  .home-blog-img2{
-    background-image: url("../../image/banner/homeblog-08.jpg");
-    height: 234px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
-  .home-blog-btn1{
-    text-align: center;
-    position: absolute;
-    top: 75%;
-    left: 17%;
-    transform: translate(-50%, -50%);
   
-  }
-  .home-blog-btn2{
-      text-align: center;
-      position: absolute;
-      top: 75%;
-      left: 17%;
-      transform: translate(-50%, -50%);
-    }
-    .home-blog-img1:hover{
-      -webkit-filter: brightness(70%);
-      transition: .3s;
-    }
-    .home-blog-img2:hover{
-      -webkit-filter: brightness(70%);
-      transition: .3s;
-    }
-    .home-blog-text{
-      position: relative;
-      top: 60%;
-      left: 5%;
-    }
-    .home-blog-btn2 , .home-blog-btn1:hover{
-      color: yellow
-    }
     /* WhyChoose */
     .riding-img{
       background-image: url("../../image/banner/bg-video.png");
@@ -98,7 +17,74 @@
     }
     .video-text{
       position: absolute;
-      top: 45%;
+      top: 30%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    /* Why Choose us */
+
+    .video-btn {
+      height: 80px;
+      width: 80px;
+      border: 2px solid white;
+      padding: 20px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      position: absolute;
+      border-radius: 50%;
+      animation: video-animation 1s linear infinite;
+      opacity: 0;
+  }
+  .video-btn-box {
+    width: 100%;
+    height: 100%;
+}
+.video-btn-icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  cursor: pointer;
+  font-size: 50px;
+}
+iframe {
+  border-radius: 7px;
+}
+.modal-content-WhyChoose {
+  border: none !important;
+  background-color:transparent !important;
+}
+.modal-header-WhyChoose {
+  padding:0 !important;
+  border: none !important;
+ 
+}
+.btn-close {
+  background: white url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+  color:black
+}
+  @keyframes video-animation {
+    0%{
+      transform: scale(1)
+    }
+    50%{
+      opacity: 1;
+    }
+    100%{
+      
+      transform: scale(1.3);
+    }    
+  }
+
+  /* FeaturedNow */
+  .select_feature:active{
+    color:#ffc107
+  }
+  .select_feature:focus{
+    color:#ffc107
+  }
