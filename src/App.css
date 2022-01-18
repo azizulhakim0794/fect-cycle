@@ -5,6 +5,10 @@ img, media {
 .cursor-p{
   cursor: pointer;
 }
+.media-icon{
+  cursor: pointer;
+  height:30px
+}
 /* Loading */
 .loading {
     height: 100vh;

@@ -7,6 +7,8 @@ import {
 import './App.css';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Loading from './Component/CommonComponent/Loading/Loading';
+import PrivateRoute from './Component/Login/PrivateRoute/PrivateRoute';
+// import AllBlogs from './Component/AllBlogs/AllBlogs';
 // import Home from './Component/Home/Home';
 // import NotFound from './Component/CommonComponent/NotFound/NotFound';
 // import Login from './Component/Login/Login';
@@ -17,6 +19,7 @@ import Loading from './Component/CommonComponent/Loading/Loading';
 // import AddToCartProduct from './Component/AddToCartProduct/AddToCartProduct';
 export const UserContext = createContext()
 const Home = React.lazy(()=> import('./Component/Home/Home'))
+const AllBlogs = React.lazy(()=> import('./Component/AllBlogs/AllBlogs'))
 const NotFound = React.lazy(()=> import('./Component/CommonComponent/NotFound/NotFound'))
 const Login = React.lazy(()=> import('./Component/Login/Login'))
 const Shop = React.lazy(()=> import('./Component/Shop/Shop'))
@@ -27,9 +30,9 @@ const UsersOrders = React.lazy(()=> import('./Component/UsersOrders/UsersOrders'
 const AddToCartProduct = React.lazy(()=> import('./Component/AddToCartProduct/AddToCartProduct'))
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
-    isSignedIn: true,
+    isSignedIn: false,
     name: '',
-    email: 'azizulhakimtumzid0793@gmail.com',
+    email: '',
     photo: '',
     uid: '',
     admin: '',
@@ -61,8 +64,11 @@ function App() {
           <Route path="/productDetails/:id">
             <ProductDetails />
           </Route>
-          <Route path="/blog">
+          <Route path="/blog/:blogId">
             <Blog />
+          </Route>
+          <Route path="/blog">
+            <AllBlogs />
           </Route>
           <Route path="*">
             <NotFound />

@@ -27,8 +27,8 @@ const ProductCarousel = () => {
 
     const history = useHistory()
     useEffect(() => {
-        const abortCont = new AbortController()
-        axios.get('/product', { signal: abortCont.signal })
+        // const abortCont = new AbortController()
+        axios.get('/product')
             .then((res) => {
                 setProducts(res.data)
             })
@@ -37,9 +37,8 @@ const ProductCarousel = () => {
                     console.log('fetch Abort')
                 }
             })
-        return () => abortCont.abort()
     }, [])
-
+    // console.log(products)
     const handleProductDetails = (event) => {
         history.push('/productDetails/' + event)
     }

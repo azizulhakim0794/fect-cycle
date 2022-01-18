@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-const SimpleCardForm = ({handleUserSelectService}) => {
+const SimpleCardForm = ({handlePaymentOfOrder}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [errorMassage, setErrorMassage] = useState();
     const [paymentSuccess, setPaymentSuccess] = useState();
-    const handlePaymentOfOrder = (e,paymentId) => {
+    // const handlePaymentOfOrder = (e,paymentId) => {
 
-        // const allData = { ...info, date: new Date(), paymentId: paymentId,plans:id,userEmail:userData.email}
-        if(e){
-            handleUserSelectService()
-        }
+    //     // const allData = { ...info, date: new Date(), paymentId: paymentId,plans:id,userEmail:userData.email}
+    //     if(e){
+    //         handlePaymentOfOrder()
+    //     }
 
-    }
+    // }
     const handleSubmit = async (event) => {
         // Block native form submission.
+        if(event){
+                    handlePaymentOfOrder()
+                }
         event.preventDefault();
 
         if (!stripe || !elements) {
@@ -51,7 +54,7 @@ const SimpleCardForm = ({handleUserSelectService}) => {
                 <CardElement />
                 <br />
                 <div className="text-center">
-                    <button type="submit" disabled={!stripe} className="btn btn-success col-md-10 col-sm-10 col-10 airBtn text-white mb-3">
+                    <button type="submit" disabled={!stripe} className="btn btn-warning col-md-10 col-sm-10 col-10 airBtn text-white mb-3">
                         Pay
                 </button>
                 </div>

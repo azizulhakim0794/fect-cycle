@@ -20,7 +20,7 @@ const Card = () => {
     }
 
     const allProductList = products.map((product) => {
-        const { img, _id, name } = product
+        const { img, _id, name,price } = product
         return (<div className="col" key={_id} onClick={() => handleProductDetails(_id)}>
             <CardActionArea className="">
                 {/* <Card className=""> */}
@@ -31,7 +31,8 @@ const Card = () => {
                     className="card-img-top"
                 />
                 <CardContent className="Product_cardContent">
-                    <Typography variant="h6" gutterBottom>{name}</Typography>
+                <p className="h6 text-center">{name}</p>
+                    <p className="h6 text-danger text-center"> ${price}</p>
                 </CardContent>
                 {/* </Card> */}
             </CardActionArea>

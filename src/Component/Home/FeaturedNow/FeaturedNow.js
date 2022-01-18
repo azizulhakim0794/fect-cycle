@@ -33,7 +33,6 @@ const FeaturedNow = () => {
 
   const allFeatureProductList = featureProduct.map((product) => {
     const { img, _id, name, price } = product
-    // console.log(product.category)
     return (<div className="col" key={_id} onClick={() => handleProductDetails(_id)}>
       <CardActionArea className="">
         {/* <Card className=""> */}
@@ -82,8 +81,6 @@ const FeaturedNow = () => {
     }
     setCategory('cycle-accessories')
   }
-  // console.log(category)
-  // console.log(featureProduct)
   return (
     <div className="">
       <br />

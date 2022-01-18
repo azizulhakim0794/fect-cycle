@@ -1,38 +1,34 @@
+import axios from './../../axios'
 import React, { useEffect, useState } from 'react'
-import NavBar from '../CommonComponent/NavBar/NavBar'
-import SocialIcon from '../CommonComponent/SocialIcon/SocialIcon'
-import './Blog.css'
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Footer from '../CommonComponent/Footer/Footer';
-import './Blog.css'
-import axios from '../../axios';
+import NavBar from './../CommonComponent/NavBar/NavBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarWeek, faComment} from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
-const Blog = () => {
-    let {blogId} = useParams()
-    const [blogsContent, setBlogsContent] = useState({})
+import SocialIcon from '../CommonComponent/SocialIcon/SocialIcon';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+const AllBlogs = () => {
+    const [allBlog,setAllBlog] = useState([])
     useEffect(() => {
-        axios.get('/blogs/'+blogId)
+        axios.get('/blogs')
         .then((res)=>{
-            setBlogsContent(res.data)
+            setAllBlog(res.data)
         })
-    },[blogId])
-    return (
-        <div>
-            <NavBar/>
+    },[])
+
+    const allBlogsComponent = allBlog.map((data) =>{
+        const {img , title} = data
+        return(
             <div className="">
                 <div className="container">
                     <br />
                     <br />
                     <br />
-                <h2 className="">{blogsContent.title}</h2>
+                <h2 className="">{title}</h2>
                 <div className="text-muted my-3">
                     <span className=""><FontAwesomeIcon icon={faCalendarWeek}/> Oct 12, 2018</span> , <span className=""> <FontAwesomeIcon icon={faComment}/> 0 message</span>
                 </div>
                 <SocialIcon/>
                 <br />
-                <LazyLoadImage className="img-fluid w-100 blog-img1" src={blogsContent.img} alt="" title={blogsContent.title}/>
+                <LazyLoadImage className="img-fluid w-100 blog-img1" src={img} alt="" title={title}/>
                 <br /><br /><br />
                 <p className="text-muted"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum beatae facilis a saepe modi similique!
                      Unde ex delectus quos, repellendus ipsum quae recusandae? Non similique veritatis, culpa voluptates eos rem 
@@ -56,9 +52,20 @@ const Blog = () => {
                   soluta accusantium expedita eum doloremque vel, eveniet architecto labore blanditiis voluptates aliquid </p>
                      </div>
             </div>
-            <Footer/>
+        )
+    })
+
+    return (
+        <div>
+            <NavBar/>
+            <br />
+            <br />
+            <br />
+            {
+                allBlogsComponent
+            }
         </div>
     )
 }
 
-export default Blog
+export default AllBlogs
