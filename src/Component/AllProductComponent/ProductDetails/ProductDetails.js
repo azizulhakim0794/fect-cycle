@@ -11,7 +11,6 @@ import { UserContext } from '../../../App'
 import ProductDetailsCarouselCard from './ProductDetailsCarouselCard'
 import PaymentProcess from '../../PaymentProcess/PaymentProcess';
 import SocialIcon from '../../CommonComponent/SocialIcon/SocialIcon'
-import PrivateRoute from '../../Login/PrivateRoute/PrivateRoute';
 const ProductDetails = () => {
     const [loggedInUser] = useContext(UserContext)
     let { id } = useParams()
@@ -62,23 +61,38 @@ const ProductDetails = () => {
     }
     // console.log(product.category)
 
-    const handlePaymentOfOrder = (e,paymentId) => {
+    const handlePaymentOfOrder = async(e,paymentId) => {
 
         // const allData = { ...info, date: new Date(), paymentId: paymentId,plans:id,userEmail:userData.email}
-        // fetch('https://damp-meadow-37150.herokuapp.com/addPerson', {
-        //     method: 'POST',
-        //     headers: { 'content-type': 'application/json' },
-        //     body: JSON.stringify({ data: allData })
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         if (data) {
-        //             setSuccess(true)
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.error(error)
-        //     })
+        const { _id, price, details, brand, name, img, category } = product
+        if (loggedInUser.isSignedIn) {
+            await axios.post('/userOrderedProduct', {
+                id: _id,
+                name: name,
+                details: details,
+                category: category,
+                brand: brand,
+                price: price * value,
+                quantity: value,
+                img: img,
+                date:new Date(),
+                paymentId:paymentId,
+                email: loggedInUser.email
+            })
+                // .then(res => {
+
+                //     if (res.status === 201) {
+                //         history.push('/userOrder')
+                //         console.log(res.status)
+                //     }
+                // })
+
+                e.preventDefault()
+        }
+
+        if (!loggedInUser.isSignedIn) {
+            history.push('/login')
+        }
         console.log("success")
 
     }

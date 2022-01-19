@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { useHistory } from 'react-router-dom';
 const SimpleCardForm = ({handlePaymentOfOrder}) => {
     const stripe = useStripe();
     const elements = useElements();
     const [errorMassage, setErrorMassage] = useState();
     const [paymentSuccess, setPaymentSuccess] = useState();
-    // const handlePaymentOfOrder = (e,paymentId) => {
-
-    //     // const allData = { ...info, date: new Date(), paymentId: paymentId,plans:id,userEmail:userData.email}
-    //     if(e){
-    //         handlePaymentOfOrder()
-    //     }
-
-    // }
+    const history = useHistory()
     const handleSubmit = async (event) => {
-        // Block native form submission.
-        if(event){
-                    handlePaymentOfOrder()
-                }
-        event.preventDefault();
+
+
 
         if (!stripe || !elements) {
             // Stripe.js has not loaded yet. Make sure to disable
@@ -45,7 +36,7 @@ const SimpleCardForm = ({handlePaymentOfOrder}) => {
             setErrorMassage('')
 
         }
-        
+        event.preventDefault();
     };
 
     return (
@@ -64,7 +55,7 @@ const SimpleCardForm = ({handlePaymentOfOrder}) => {
                 errorMassage && <p className="text-danger text-center">{errorMassage}</p>
             }
             {
-                paymentSuccess && <p className="text-center text-success">Your payment successfully Done.</p>
+                paymentSuccess && <div> <p className="text-center text-success">Your payment successfully Done.</p> <br /> <div className="text-center"> <button className="btn btn-warning" data-bs-dismiss="modal" aria-label="Close" onClick={()=> history.push('/userOrder')}>My Orders</button> </div></div>
             }
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { createContext, useState,Suspense } from 'react';
+import React, { createContext, useState, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,16 +18,16 @@ import PrivateRoute from './Component/Login/PrivateRoute/PrivateRoute';
 // import UsersOrders from './Component/UsersOrders/UsersOrders';
 // import AddToCartProduct from './Component/AddToCartProduct/AddToCartProduct';
 export const UserContext = createContext()
-const Home = React.lazy(()=> import('./Component/Home/Home'))
-const AllBlogs = React.lazy(()=> import('./Component/AllBlogs/AllBlogs'))
-const NotFound = React.lazy(()=> import('./Component/CommonComponent/NotFound/NotFound'))
-const Login = React.lazy(()=> import('./Component/Login/Login'))
-const Shop = React.lazy(()=> import('./Component/Shop/Shop'))
+const Home = React.lazy(() => import('./Component/Home/Home'))
+const AllBlogs = React.lazy(() => import('./Component/AllBlogs/AllBlogs'))
+const NotFound = React.lazy(() => import('./Component/CommonComponent/NotFound/NotFound'))
+const Login = React.lazy(() => import('./Component/Login/Login'))
+const Shop = React.lazy(() => import('./Component/Shop/Shop'))
 // const Contact = React.lazy(()=> import('./Component/Contact/Contact'))
-const Blog = React.lazy(()=> import('./Component/Blog/Blog'))
-const ProductDetails = React.lazy(()=> import('./Component/AllProductComponent/ProductDetails/ProductDetails'))
-const UsersOrders = React.lazy(()=> import('./Component/UsersOrders/UsersOrders'))
-const AddToCartProduct = React.lazy(()=> import('./Component/AddToCartProduct/AddToCartProduct'))
+const Blog = React.lazy(() => import('./Component/Blog/Blog'))
+const ProductDetails = React.lazy(() => import('./Component/AllProductComponent/ProductDetails/ProductDetails'))
+const UsersOrders = React.lazy(() => import('./Component/UsersOrders/UsersOrders'))
+const AddToCartProduct = React.lazy(() => import('./Component/AddToCartProduct/AddToCartProduct'))
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
     isSignedIn: false,
@@ -39,45 +39,45 @@ function App() {
   })
   return (
     <>
-    <Suspense fallback={<Loading/>}>
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-    <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/Login">
-            <Login />
-          </Route>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          {loggedInUser.isSignedIn && <Route path="/userOrder">
-            <UsersOrders />
-          </Route>}
-          {loggedInUser.isSignedIn && <Route path="/addToCart">
-            <AddToCartProduct />
-          </Route>}
-          <Route path="/productDetails/:id">
-            <ProductDetails />
-          </Route>
-          <Route path="/blog/:blogId">
-            <Blog />
-          </Route>
-          <Route path="/blog">
-            <AllBlogs />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-      </Router>
-      </UserContext.Provider>
+      <Suspense fallback={<Loading />}>
+        <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/home">
+                <Home />
+              </Route>
+              <Route path="/Login">
+                <Login />
+              </Route>
+              <Route path="/shop">
+                <Shop />
+              </Route>
+              <PrivateRoute path="/userOrder">
+                <UsersOrders />
+              </PrivateRoute>
+              <PrivateRoute path="/addToCart">
+                <AddToCartProduct />
+              </PrivateRoute>
+              <Route path="/productDetails/:id">
+                <ProductDetails />
+              </Route>
+              <Route path="/blog/:blogId">
+                <Blog />
+              </Route>
+              <Route path="/blog">
+                <AllBlogs />
+              </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </Router>
+        </UserContext.Provider>
       </Suspense>
-      </>
+    </>
   );
 }
 

@@ -7,9 +7,9 @@ const UsersOrders = () => {
     const [userOrderProduct, setUserOrderProduct] = useState([])
     const [loggedInUser] = useContext(UserContext)
         useEffect(() => {
-            axios.get('/userOrderedProducts', {
+            axios.get('/userOrderedProduct', {
                 headers: {
-                  email: loggedInUser.email
+                    email: loggedInUser.email
                 }
               })
               .then(res => {
@@ -17,9 +17,9 @@ const UsersOrders = () => {
               })
         }, [loggedInUser.email])
     const AllUserProduct = userOrderProduct.map((product) => {
-        const { img, name, price } = product
+        const { img, name, price ,_id} = product
         return (
-            <div>
+            <div key={_id}>
                 <div className="card mb-3">
                     <div className="row g-0">
                         <div className="col-md-4">

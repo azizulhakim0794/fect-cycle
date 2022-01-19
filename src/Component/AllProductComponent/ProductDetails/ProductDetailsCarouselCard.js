@@ -75,8 +75,6 @@ const ProductDetailsCarouselCard = ({productCategory}) => {
         }
     }, [productCategory])
 
-   console.log(productCategory)
-
     return (
         <div className="">
             {/* <p className="text-center"><b className=""><span className={`me-4 cursor-p user-select-none ${cycleAce ? "text-warning" : ""}`} onClick={handleBikeCategory}>BIKES</span> <span className="border-end border-secondary"></span> <span className={`ms-4 cursor-p user-select-none ${!cycleAce ? "text-warning" : ""}`} onClick={handleBikeAccCategory}>BIKE'S ACO</span></b></p> */}
