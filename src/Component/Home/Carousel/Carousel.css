@@ -33,6 +33,17 @@
     user-select: none;
     animation: carouselText 1.7s linear ;
   }
+.carousel-indicators [data-bs-target] {
+  display: inline-block ;
+  width: 10px ;
+  height: 10px ;
+  margin: 5px ;
+  text-indent: 0;
+  cursor: pointer ;
+  border: none;
+  border-radius: 50% ;
+  background-color: #a5a1a1 ;
+}
   .banner-text{
     position: absolute;
     top: 40%;
